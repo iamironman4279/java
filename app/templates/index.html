@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancer Detection Web Interface</title>
+    <style>
+        body {
+            background-color: #ffffff; /* White background */
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333333; /* Dark gray text color */
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333333; /* Dark gray text color */
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #4CAF50; /* Light green button */
+            color: #ffffff; /* White text color */
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049; /* Darker shade on hover */
+        }
+
+        p {
+            margin-top: 20px;
+            color: #333333; /* Dark gray text color */
+        }
+    </style>
+</head>
+<body>
+    <h1>Cancer Detection Web Interface</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <label for="file">Choose an image:</label>
+        <input type="file" name="file" id="file" accept=".jpg, .jpeg">
+        <br>
+        <button type="submit">Predict</button>
+    </form>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+    {% if result %}
+        <p>Prediction: {{ result }}</p>
+    {% endif %}
+</body>
+</html>
